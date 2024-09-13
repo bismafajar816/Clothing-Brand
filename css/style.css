@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.top-bar {
+    background-color: #f8f9fa;
+    padding: 10px;
+    position: relative;
+}
+.top-bar .marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.top-bar .marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand {
+    margin: 0;
+}
+.navbar-brand img {
+    height: 50px;
+    width: 100px;
+    padding-left: 10%;
+    
+}
+.search-bar {
+    padding-left: 10%;
+    padding-right: 30%;
+    width: 60%;
+}
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.bag-icon {
+    
+    background-color: #dee2e6;
+    width: 40px; /* Adjust the size of the bag image */
+    height: 40px; /* Adjust the size to keep it square */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+.main-content {
+    display: flex;
+    height: 100vh;
+}
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s;
+    transform: translateX(0);
+}
+.promotion-container {
+    position: relative;
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Ensure items stay in a single line */
+}
+
+.promotion {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    overflow-x: auto;
+}
+
+.promotion-item {
+    min-width: 250px; /* Set a fixed width for all promotion items */
+    height: 50%; /* Set a fixed height for the promotion items */
+    background-color: #e9ecef;
+    text-align: center;
+    margin-right: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    justify-content: space-between; /* Space out the image and text */
+}
+
+.promotion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container without being distorted */
+    border-radius: 5px; /* Optional: add a slight border radius to the images */
+}
+
+.promotion-item p {
+    margin-top: 10px; /* Space between the image and the promotion text */
+    font-size: 16px;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+.sidebar .nav-item a {
+    color: white;
+}
+.promotion {
+    margin: 0 auto;
+    padding: 20px;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.promotion .promotion-item {
+    display: inline-block;
+    margin-right: 20px;
+    width: 200px;
+    height: 150px;
+    background-color: #e9ecef;
+    text-align: center;
+    line-height: 150px;
+    font-size: 18px;
+}
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: 50px; /* Space between articles */
+    gap: 20px; /* Space between each article */
+}
+
+.article {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    width: 300px; /* Fixed width for each article */
+    box-sizing: border-box; /* Include padding in the width */
+    text-align: center;
+}
+
+.article-img-container {
+    width: 100%; /* Full width of the article */
+    padding-bottom: 100%; /* Makes the height equal to the width, creating a square */
+    position: relative; /* Needed for absolutely positioning the image */
+    overflow: hidden; /* Hide overflow if image is larger */
+    margin-bottom: 15px;
+}
+
+.article-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+.article-info {
+    font-size: 16px;
+    line-height: 1.5;
+}
